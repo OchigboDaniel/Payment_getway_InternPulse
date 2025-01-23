@@ -26,6 +26,11 @@ jobs:
       - name: Run CI command
         run: npm ci
 
+      - name: Set up .env file
+        run: |
+          echo "PAYSTACK_SECRETE_KEY=${{ secrets.PAYSTACK_SECRETE_KEY }}" >> .env
+        
+
       - name: Run the tests
         run: npm run test
         
